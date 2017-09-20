@@ -12,15 +12,21 @@ class Book
     books = []
     books_list.each do |book|
       title = book.fetch("title")
+      author = book.fetch("author")
       id = book.fetch("id").to_i
-      author = books.fetch("author")
-      books.push(Book.new({:title => title, :id => id, :author => author}))
+      books.push(Book.new({:title => title, :author => author, :id => id}))
     end
     books
   end
 
+  def save
+    result = DB.exec("INSERT INTO books (title, author) VALUES ('#{@title}', '#{@author}') RETURNING id;")
+    @id = result.first.fetch('id').to_i
+  end
+
+  def ==(another_book)
+    self.title().==(another_book.title()).&(self.author().==(another_book.author()))
+  end
 
 
-
-    
 end
