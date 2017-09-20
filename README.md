@@ -17,6 +17,7 @@ _This app will allow a library administer to track the addition, removal, and ch
 
 ## Specifications
 
+### Book Specifications
 * _It will create an instance of a book class._
   * Example input: book = Book.new({:name => "Innerstellar Pig", :author => "William Sleator", :id => nil})
   * Example output: Innerstellar Pig, William Sleater, nil
@@ -26,6 +27,16 @@ _This app will allow a library administer to track the addition, removal, and ch
 * _It will return a list of books from the database._
   * Example input: book.find
   * Example output: Innerstellar Pig, William Sleator, nil
+* _It will allow user to delete books from the database._
+  * Example input: book.delete({:name => "Innerstellar Pig", :author => "William Sleater", :id => nil})
+  * Example output: Book.all != [book]
+* _ _
+  * Example input:
+  * Example output:
+
+
+
+### Patron Specifications  
 * _It will create an instance of the patron class._
   * Example input: patron = Patron.new({:name => "Tom Jones", :id => nil})
   * Example output: Tom Jones, nil

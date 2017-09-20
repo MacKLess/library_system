@@ -28,5 +28,8 @@ class Book
     self.title().==(another_book.title()).&(self.author().==(another_book.author()))
   end
 
+  def delete
+    DB.exec("DELETE FROM books WHERE id = #{self.id};")
+  end
 
 end

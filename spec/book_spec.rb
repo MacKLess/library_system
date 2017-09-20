@@ -30,5 +30,13 @@ describe(Book) do
     end
   end
 
+  describe('#delete') do
+    it('will delete a book from the database') do
+      book = Book.new({:title => "Innerstellar Pig", :author => "William Sleater", :id => nil})
+      book.save
+      book.delete
+      expect(Book.all).to(eq([]))
+    end
+  end
 
 end

@@ -30,5 +30,9 @@ describe(Patron) do
     end
   end
 
+  # describe('#delete') do
+  #   it('will delete a patron')
+  # end
+
 
 end
