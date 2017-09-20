@@ -32,4 +32,12 @@ class Book
     DB.exec("DELETE FROM books WHERE id = #{self.id};")
   end
 
+  def self.find(title)
+    Book.all.each do |book|
+      if book.title == title
+        return book
+      end
+    end
+  end
+
 end

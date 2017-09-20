@@ -39,4 +39,14 @@ describe(Book) do
     end
   end
 
+  describe('.find') do
+    it ('will return a book when given a title') do
+      book1 = Book.new({:title => "Innerstellar Pig", :author => "William Sleator", :id => nil})
+      book2 = Book.new({:title => "The Hobbit", :author => "J.R.R. Tolkien", :id => nil})
+      book1.save
+      book2.save
+      expect(Book.find("Innerstellar Pig")).to(eq(book1))
+    end
+  end
+
 end

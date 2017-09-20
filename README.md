@@ -30,6 +30,15 @@ _This app will allow a library administer to track the addition, removal, and ch
 * _It will allow user to delete books from the database._
   * Example input: book.delete({:name => "Innerstellar Pig", :author => "William Sleater", :id => nil})
   * Example output: Book.all != [book]
+* _It will return a book when given the title._
+  * Example input: Book.find("Innerstellar Pig")
+  * Example output: Innerstellar Pig, William Sleator, nil
+* _ _
+  * Example input:
+  * Example output:
+* _ _
+  * Example input:
+  * Example output:
 * _ _
   * Example input:
   * Example output:
