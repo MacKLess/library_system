@@ -7,4 +7,12 @@ describe(Patron) do
       expect(patron.name).to(eq("Tom Jones"))
     end
   end
+
+  describe('.all') do
+    it("will return a list of patrons from the database") do
+      expect(Patron.all).to(eq([]))
+    end
+  end
+
+  
 end
