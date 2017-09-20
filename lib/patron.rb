@@ -18,6 +18,6 @@ class Patron
   end
 
   def ==(another_patron)
-    self.name().==(another_patron.name())
+    self.name().==(another_patron.name()).&(self.id().==(another_patron.id()))
   end
 end
