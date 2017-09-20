@@ -14,7 +14,15 @@ get('/') do
 end
 
 get('/admin') do
-  @books = Book.all
-  @patrons = Patron.all
   erb(:admin)
 end
+
+get('/admin_patrons') do
+  @patrons = Patron.all
+  erb(:admin_patrons)
+end
+# 
+# get('/admin_books') do
+#   @books = Book.all
+#   erb(:admin_books)
+# end
