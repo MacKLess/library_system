@@ -12,9 +12,17 @@ describe('redirecting to admin page', {:type => :feature}) do
 end
 
 describe('redirect to admin_patrons page', {:type => :feature}) do
-  it('allows the user to access the admin page') do
+  it('allows the user to access the admin patrons page') do
     visit('/admin')
     click_link('Access patron catalogue')
     expect(page).to have_content('Patron Catalogue')
+  end
+end
+
+describe('redirect to admin_books page', {:type => :feature}) do
+  it('allows the user to access the admin books page') do
+    visit('/admin')
+    click_link('Access book catalogue')
+    expect(page).to have_content('Book Catalogue')
   end
 end

@@ -21,8 +21,8 @@ get('/admin_patrons') do
   @patrons = Patron.all
   erb(:admin_patrons)
 end
-# 
-# get('/admin_books') do
-#   @books = Book.all
-#   erb(:admin_books)
-# end
+
+get('/admin_books') do
+  @books = Book.all
+  erb(:admin_books)
+end
