@@ -20,4 +20,9 @@ class Patron
   def ==(another_patron)
     self.name().==(another_patron.name()).&(self.id().==(another_patron.id()))
   end
+
+  def save
+    patron = DB.exec("INSERT INTO patrons (name) VALUES ('#{@name}') RETURNING id;")
+    @id = patron.first.fetch('id').to_i
+  end
 end
