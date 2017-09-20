@@ -25,4 +25,9 @@ class Patron
     patron = DB.exec("INSERT INTO patrons (name) VALUES ('#{@name}') RETURNING id;")
     @id = patron.first.fetch('id').to_i
   end
+
+  def update(attributes)
+    @name = attributes.fetch(:name)
+    DB.exec("UPDATE patrons SET name = '#{@name}' WHERE id = #{self.id};")
+  end
 end

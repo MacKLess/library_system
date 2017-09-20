@@ -30,6 +30,16 @@ describe(Patron) do
     end
   end
 
+  describe('#update') do
+    it('will update patron instances in the database') do
+      patron = Patron.new({:name => "Tom Jones", :id => nil})
+      patron.save
+      patron.update({:name => "Tom Megatron Jones"})
+      patron.save
+      expect(patron.name).to(eq("Tom Megatron Jones"))
+    end
+  end
+
   # describe('#delete') do
   #   it('will delete a patron')
   # end
