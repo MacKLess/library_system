@@ -8,4 +8,17 @@ describe(Book) do
     end
   end
 
+  describe('.all') do
+    it("will return a list of all the books from the database") do
+      expect(Book.all).to(eq([]))
+    end
+  end
+
+  # describe('#save') do
+  #   it("will save an instance of the book to the database.") do
+  #     book.save
+  #     expect()
+  #   end
+  # end
+
 end
