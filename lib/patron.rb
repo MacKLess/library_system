@@ -17,4 +17,7 @@ class Patron
     patrons
   end
 
+  def ==(another_patron)
+    self.name().==(another_patron.name())
+  end
 end

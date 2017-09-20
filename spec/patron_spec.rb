@@ -14,5 +14,13 @@ describe(Patron) do
     end
   end
 
-  
+  describe('#==') do
+    it('is the same patron if the name is the same') do
+      patron1 = Patron.new({:name => "Tom Jones", :id => nil})
+      patron2 = Patron.new({:name => "Tom Jones", :id => nil})
+      expect(patron1).to(eq(patron2))
+    end
+  end
+
+
 end
