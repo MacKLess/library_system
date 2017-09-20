@@ -7,7 +7,7 @@ require('./lib/checkout')
 require('pg')
 require('pry')
 
-DB = PG.connect({:dbname => "library_test"})
+DB = PG.connect({:dbname => "library"})
 
 get('/') do
   erb(:index)
@@ -17,12 +17,21 @@ get('/admin') do
   erb(:admin)
 end
 
-get('/admin_patrons') do
-  @patrons = Patron.all
-  erb(:admin_patrons)
-end
-
 get('/admin_books') do
   @books = Book.all
   erb(:admin_books)
+end
+
+post('/admin_books') do
+  title = params.fetch('new_book_title')
+  author = params.fetch('new_book_author')
+  book = Book.new({:title => title, :author => author, :id => nil})
+  book.save
+  @books = Book.all
+  erb(:admin_books)
+end
+
+get('/admin_patrons') do
+  @patrons = Patron.all
+  erb(:admin_patrons)
 end

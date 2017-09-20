@@ -1,1 +1,19 @@
 <h1>Book Catalogue</h1>
+
+<% @books.each do |book| %>
+  <ul>
+    <li><%= book.title %>, <%= book.author %>  </li>
+  </ul>
+<% end %>
+
+<h2>Add a Book to the Catalogue</h2>
+<form action="/admin_books" method="post">
+  <div class="form-group">
+    <label for="new_book_title">Title:</label>
+    <input name="new_book_title" type="text" class="form-control">
+
+    <label for="new_book_author">Author (First Name Last Name):</label>
+    <input name="new_book_author" type="text" class="form-control">
+</div>
+  <button type="submit" class="btn">Add!</button>
+</form>
