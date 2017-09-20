@@ -15,6 +15,39 @@ _This app will allow a library administer to track the addition, removal, and ch
 * _Set up SQL as follows: (to be completed later)_
 * _Open with your preferred browser._
 
+## Specifications
+
+* _It will create an instance of a book class._
+  * Example input: book = Book.new({:name => "Innerstellar Pig", :author => "William Sleator", :id => nil})
+  * Example output: Innerstellar Pig, William Sleater, nil
+* _It will save an instance of the book to the database._
+  * Example input: book.save
+  * Example output: Innerstellar Pig, William Sleator, nil
+* _It will return a list of books from the database._
+  * Example input: book.find
+  * Example output: Innerstellar Pig, William Sleator, nil
+* _It will create an instance of the patron class._
+  * Example input: patron = Patron.new({:name => "Tom Jones", :id => nil})
+  * Example output: Tom Jones, nil
+* _It will save an instance of a patron to the database._
+  * Example input: patron.save
+  * Example output: Tom Jones, nil
+* _It will return a list of patrons from the database._
+  * Example input: patron.find
+  * Example output: Tom Jones, nil
+* _It will create an instance of a checkout when a patron checks out a book._
+  * Example input:
+  * Example output:
+* _ _
+  * Example input:
+  * Example output:
+* _ _
+  * Example input:
+  * Example output:
+* _ _
+  * Example input:
+  * Example output:
+
 ## Known Bugs
 
 _There are no known bugs at this time, but this is work in progress._
