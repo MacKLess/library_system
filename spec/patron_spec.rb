@@ -40,9 +40,14 @@ describe(Patron) do
     end
   end
 
-  # describe('#delete') do
-  #   it('will delete a patron')
-  # end
+  describe('#delete') do
+    it('will delete a patron form the database') do
+    patron = Patron.new({:name => "Tom Jones", :id => nil})
+    patron.save
+    patron.delete
+    expect(Patron.all).to(eq([]))
+    end
+  end
 
 
 end

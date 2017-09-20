@@ -30,4 +30,8 @@ class Patron
     @name = attributes.fetch(:name)
     DB.exec("UPDATE patrons SET name = '#{@name}' WHERE id = #{self.id};")
   end
+
+  def delete
+    DB.exec("DELETE FROM patrons WHERE id = #{self.id};")
+  end
 end

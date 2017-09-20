@@ -47,11 +47,11 @@ _This app will allow a library administer to track the addition, removal, and ch
   * Example input: patron.find
   * Example output: Tom Jones, nil
 * _It will update a patron in the database._
-  * Example input: patron1 = patron.update ({:name => "Jason Megatron Burroughs"})
+  * Example input: patron.update ({:name => "Jason Megatron Burroughs"})
   * Example output: patron1.name = Jason Megatron Burroughs
-* _ _
-  * Example input:
-  * Example output:
+* _It will delete a patron from the database._
+  * Example input: patron.delete({:name => Tom Jones", :id => nil})
+  * Example output: Patron.all != [patron]
 
 
 
