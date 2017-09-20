@@ -35,3 +35,11 @@ get('/admin_patrons') do
   @patrons = Patron.all
   erb(:admin_patrons)
 end
+
+post('/admin_patrons') do
+  name = params.fetch('new_patron_name')
+  patron = Patron.new({:name => name, :id => nil})
+  patron.save
+  @patrons = Patron.all
+  erb(:admin_patrons)
+end

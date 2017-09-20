@@ -36,3 +36,12 @@ describe('submit a new book instance with title and author', {:type => :feature}
     expect(page).to have_content("Harry Potter and the Sorcerers Stone")
   end
 end
+
+describe('submit a new patron instance with name', {:type => :feature}) do
+  it('allows the user to create a new patron instance with name') do
+    visit('/admin_patrons')
+    fill_in('new_patron_name', :with => "Rudolph Valentino")
+    click_button('Add!')
+    expect(page).to have_content('Rudolph Valentino')
+  end
+end

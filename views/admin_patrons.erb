@@ -1,1 +1,16 @@
 <h1>Patron Catalogue</h1>
+
+<% @patrons.each do |patron| %>
+  <ul>
+    <li><%= patron.name %>, <%= patron.id %>   </li>
+  </ul>
+<% end %>
+
+<h2>Add a Patron to the Catalogue</h2>
+<form action="/admin_patrons" method="post">
+  <div class="form-group">
+    <label for="new_patron_name">Name:</label>
+    <input name="new_patron_name" type="text" class="form-control">
+  </div>
+    <button type="submit" class="btn">Add!</button>
+</form>
