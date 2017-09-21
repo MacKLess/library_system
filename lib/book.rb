@@ -47,5 +47,25 @@ class Book
       end
     end
   end
-  
+
+  def update(attributes)
+    @title = attributes.fetch(:title, @title)
+    DB.exec("UPDATE books SET title = '#{@title}' WHERE id = #{self.id};")
+
+    attributes.fetch(:patron_ids, []).each do |patron_id|
+      DB.exec("INSERT INTO books_patrons (book_id, patron_id) VALUES (#{self.id}, #{patron_id});")
+    end
+  end
+
+  def patrons
+    book_patrons = []
+    results = DB.exec("SELECT patron_id FROM books_patrons WHERE book_id = #{self.id};")
+    results.each do |result|
+      patron_id = result.fetch("patron_id").to_i
+      patron = DB.exec("SELECT * FROM patrons WHERE id = #{patron_id};")
+      name = patron.first.fetch("name")
+      book_patrons.push(Patron.new({:name => name, :id => patron_id}))
+    end
+    book_patrons
+  end
 end
