@@ -49,6 +49,7 @@ class Patron
   end
 
   def delete
+    DB.exec("DELETE FROM books_patrons WHERE patron_id = #{self.id};")
     DB.exec("DELETE FROM patrons WHERE id = #{self.id};")
   end
 end
