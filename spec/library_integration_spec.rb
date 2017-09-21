@@ -6,7 +6,7 @@ set(:show_exceptions, false)
 describe('redirect to books page', {:type => :feature}) do
   it('allows the user to access the book catalogue') do
     visit('/')
-    click_link('/books/<%= book.title %>')
+    click_link('See all the books')
     expect(page).to have_content('Welcome to the Book page')
   end
 end
@@ -14,8 +14,7 @@ end
 describe('redirect to patrons page', {:type => :feature}) do
   it('allows the user to access the patron catalogue') do
     visit('/')
-    fill_in('name', :with => "Norman Bates")
-    click_link('Norman Bates')
+    click_link('See all patrons')
     expect(page).to have_content('Welcome to the Patron page')
   end
 end
@@ -23,7 +22,10 @@ end
 describe('redirect to books detail page', {:type => :feature}) do
   it('allows the user to access the detail page of a particular book') do
     visit('/books/:id')
-    click_button('Show patrons')
+    fill_in('title', :with => "Cyrano de Bergerac")
+    fill_in('author', :with => "Rostand")
+    click_button('Add book')
+    click_link('Cyrano de Bergerac, Rostand')
     expect(page).to have_content('Select all patrons who have checked out this book:')
   end
 end
