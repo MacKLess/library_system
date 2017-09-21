@@ -33,8 +33,10 @@ end
 describe('redirect to patrons detail page', {:type => :feature}) do
   it('allows the user to access the detail page of a particular patron') do
     visit('/patrons/:id')
-    click_link('See books')
-    expect(page).to have_content('Select all of the books which have been checked out by this patron:')
+    fill_in('name', :with => "Norman Bates")
+    click_button('Add patron')
+    click_link('Norman Bates')
+    expect(page).to have_content('Select a new book to check out:')
   end
 end
 

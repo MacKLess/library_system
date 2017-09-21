@@ -1,6 +1,6 @@
 <h1>Hello, <%= @patron.name %></h1>
 
-<h3>Select a new book to check out?:</h3>
+<h3>Select a new book to check out:</h3>
 
 <% if @books.any? %>
   <form action="/patrons/<%= @patron.id %>" method="post">
@@ -26,7 +26,9 @@
     <% end %>
   </ul>
 <% else %>
-  <p>This patron hasn't checked out any books yet! <a href="/books">Checkout books here</a></p>
+  <p>This patron hasn't checked out any books yet!</p>
+
+  <a href="/books">Checkout books here</a><br>
 <% end %>
 
 <a href="/">Return to Main Page</a>

@@ -69,7 +69,7 @@ patch('/patrons/:id') do
   book_ids = params.fetch('book_ids')
   @patron.update({:book_ids => book_ids})
   @books = Book.all
-  erb(:patron_details)
+  erb(:patron_detail)
 end
 
 # get('/admin') do
