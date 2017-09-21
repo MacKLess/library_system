@@ -9,11 +9,11 @@
     <% @patrons.each do |patron| %>
       <div class="checkbox">
         <label>
-          <input type="checkbox" name="patron_ids" value=" <%= patron.id %>"><%= patron.name %>
+          <input type="checkbox" name="patron_ids[]" value=" <%= patron.id %>"><%= patron.name %>
         </label>
       </div>
     <% end %>
-    <button type="submit" name="btn">Show patrons</button>
+    <button type="submit" name="btn">Assign book</button>
   </form>
 <% end %>
 
@@ -21,7 +21,7 @@
   <h3>Here are all the patrons who have checked out this book:</h3>
 
   <ul>
-    <% @book.patrons.each.do |patron| %>
+    <% @book.patrons.each do |patron| %>
     <li><%= patron.name %></li>
     <% end %>
   </ul>

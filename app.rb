@@ -43,20 +43,20 @@ post('/patrons') do
 end
 
 get('/books/:id') do
-  @book = Book.find_id(params.fetch('id').to_i)
-  # @patrons = Patron.all
+  @book = Book.find_id(params.fetch(:id).to_i)
+  @patrons = Patron.all
   erb(:book_detail)
 end
 
 get('/patrons/:id') do
-  @patron = Patron.find(params.fetch('id').to_i)
+  @patron = Patron.find_id(params.fetch(:id).to_i)
   @books = Book.all
   erb(:patron_detail)
 end
 
 patch('/books/:id') do
-  book_id = params.fetch('id').to_i
-  @book = Book.find(book_id)
+  book_id = params.fetch(:id).to_i
+  @book = Book.find_id(book_id)
   patron_ids = params.fetch('patron_ids')
   @book.update({:patron_ids => patron_ids})
   @patrons = Patron.all
@@ -64,8 +64,8 @@ patch('/books/:id') do
 end
 
 patch('/patrons/:id') do
-  patron_id = params.fetch('id').to_i
-  @patron = Patron.find(patron_id)
+  patron_id = params.fetch(:id).to_i
+  @patron = Patron.find_id(patron_id)
   book_ids = params.fetch('book_ids')
   @patron.update({:book_ids => book_ids})
   @books = Book.all

@@ -52,10 +52,10 @@ class Book
   def self.find_id(id)
     Book.all.each do |book|
       if book.id == id
-        return id
+        return book
       end
     end
-  end  
+  end
 
   def update(attributes)
     @title = attributes.fetch(:title, @title)

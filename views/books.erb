@@ -5,14 +5,14 @@
 
   <ul>
     <% @books.each do |book| %>
-      <li><a href="/books/<%= book.id %>"><%= book.title %></a></li>
+      <li><a href="/books/<%= book.id %>"><%= book.title %>, <%= book.author%></a></li>
     <% end %>
   </ul>
 <% else %>
   <p>There are no books added yet!</p>
 <% end %>
 
-<p>Add another book to the database:</p>
+<p>Add a book to the database:</p>
 
 <form action="/books" method="post">
   <label for="title">Book's Title:</label>
@@ -21,10 +21,9 @@
   <label for="author">Book's Author (First name Last name):</label>
   <input id="author" name="author" type="text" >
 
-  <button type="submit" name="btn">Add Book</button>
-
+  <button type="submit" name="btn">Add book</button>
 </form>
-<!-- 
-<p><a href="/books">See all the books</a></p> -->
+
+<p><a href="/patrons">See all the patrons</a></p>
 
 <p><a href="/">Return to Main Page</a></p>

@@ -14,7 +14,8 @@ end
 describe('redirect to patrons page', {:type => :feature}) do
   it('allows the user to access the patron catalogue') do
     visit('/')
-    click_link('/patrons/<%= patron.name %>')
+    fill_in('name', :with => "Norman Bates")
+    click_link('Norman Bates')
     expect(page).to have_content('Welcome to the Patron page')
   end
 end

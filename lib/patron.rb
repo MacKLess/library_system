@@ -48,6 +48,22 @@ class Patron
     patron_books
   end
 
+  def self.find_name(name)
+    Patron.all.each do |patron|
+      if patron.name == name
+        return patron
+      end
+    end
+  end
+
+  def self.find_id(id)
+    Patron.all.each do |patron|
+      if patron.id == id
+        return patron
+      end
+    end
+  end
+
   def delete
     DB.exec("DELETE FROM books_patrons WHERE patron_id = #{self.id};")
     DB.exec("DELETE FROM patrons WHERE id = #{self.id};")

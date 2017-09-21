@@ -1,6 +1,6 @@
-<h1><%= patron.name %></h1>
+<h1>Hello, <%= @patron.name %></h1>
 
-<h3>Select all of the books which have been checked out by this patron:</h3>
+<h3>Select a new book to check out?:</h3>
 
 <% if @books.any? %>
   <form action="/patrons/<%= @patron.id %>" method="post">
@@ -18,7 +18,7 @@
 
 <% if @patron.books.any? %>
 
-  <h3>Here are all the books checked out by this patron:</h3>
+  <h3>Here are the books currently checked out by <%= @patron.name %> :</h3>
 
   <ul>
     <% @patron.books.each do |book| %>
@@ -29,4 +29,4 @@
   <p>This patron hasn't checked out any books yet! <a href="/books">Checkout books here</a></p>
 <% end %>
 
-<a href="/">Return to Main Page</a> 
+<a href="/">Return to Main Page</a>
