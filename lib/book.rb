@@ -49,6 +49,14 @@ class Book
     end
   end
 
+  def self.find_id(id)
+    Book.all.each do |book|
+      if book.id == id
+        return id
+      end
+    end
+  end  
+
   def update(attributes)
     @title = attributes.fetch(:title, @title)
     DB.exec("UPDATE books SET title = '#{@title}' WHERE id = #{self.id};")

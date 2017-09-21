@@ -1,10 +1,14 @@
 <h1>Book Catalogue</h1>
 
+<p>Here are all the books in the library catalogue:</p>
+
 <% @books.each do |book| %>
   <ul>
     <li><%= book.title %>, <%= book.author %>  </li>
   </ul>
 <% end %>
+
+#<% if @user = admin %>
 
 <h2>Add a Book to the Catalogue</h2>
 <form action="/admin_books" method="post">

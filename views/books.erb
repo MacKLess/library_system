@@ -1,0 +1,30 @@
+<h1>Welcome to the Book page</h1>
+
+<% if @books.any? %>
+  <p>Click on a book to see information about it and to assign it to a patron:</p>
+
+  <ul>
+    <% @books.each do |book| %>
+      <li><a href="/books/<%= book.id %>"><%= book.title %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no books added yet!</p>
+<% end %>
+
+<p>Add another book to the database:</p>
+
+<form action="/books" method="post">
+  <label for="title">Book's Title:</label>
+  <input id="title" name="title" type="text">
+
+  <label for="author">Book's Author (First name Last name):</label>
+  <input id="author" name="author" type="text" >
+
+  <button type="submit" name="btn">Add Book</button>
+
+</form>
+<!-- 
+<p><a href="/books">See all the books</a></p> -->
+
+<p><a href="/">Return to Main Page</a></p>

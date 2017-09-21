@@ -1,0 +1,32 @@
+<h1><%= @book.title %></h1>
+
+<h3>Select all patrons who have checked out this book:</h3>
+
+<% if @patrons.any? %>
+  <form action="/books/<%= @book.id %>" method="post">
+    <input type="hidden" name="_method" value="patch">
+
+    <% @patrons.each do |patron| %>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="patron_ids" value=" <%= patron.id %>"><%= patron.name %>
+        </label>
+      </div>
+    <% end %>
+    <button type="submit" name="btn">Show patrons</button>
+  </form>
+<% end %>
+
+<% if @book.patrons.any? %>
+  <h3>Here are all the patrons who have checked out this book:</h3>
+
+  <ul>
+    <% @book.patrons.each.do |patron| %>
+    <li><%= patron.name %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no patrons yet who have checked out this book!</p>
+<% end %>
+
+<a href="/">Return to Main Page</a>
