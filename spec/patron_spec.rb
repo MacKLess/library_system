@@ -38,6 +38,30 @@ describe(Patron) do
       patron.save
       expect(patron.name).to(eq("Tom Megatron Jones"))
     end
+
+    it('lets you add a book to a patron') do
+      patron = Patron.new({:name => "Tom Jones", :id => nil})
+      patron.save
+      hobbit = Book.new({:title => "The Hobbit", :author => "J.R.R. Tolkien", :id => nil})
+      hobbit.save
+      silmarillion = Book.new({:title => "The Silmarillion", :author => "J.R.R. Tolkien", :id => nil})
+      silmarillion.save
+      patron.update({:book_ids => [hobbit.id, silmarillion.id]})
+      expect(patron.books).to(eq([hobbit, silmarillion]))
+    end
+  end
+
+  describe('#books') do
+    it('returns all of the books in a particular patron record') do
+      patron = Patron.new({:name => "Nancy Drew", :id => nil})
+      patron.save
+      persuasion = Book.new({:title => "Persuasion", :author => "Jane Austen", :id => nil})
+      persuasion.save
+      wuthering = Book.new({:title => "Wuthering Heights", :author => "Emily Bronte", :id => nil})
+      wuthering.save
+      patron.update({:book_ids => [persuasion.id, wuthering.id]})
+      expect(patron.books).to(eq([persuasion, wuthering]))
+    end
   end
 
   describe('#delete') do
